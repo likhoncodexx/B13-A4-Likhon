@@ -15,7 +15,7 @@ Answer : Event Bubbling means a function or  mechanism where an event triggered 
 
 
 4. What is Event Delegation in JavaScript? Why is it useful?
-Answer : It is useful because it improves performance, works for dynamically added elements, and reduces the number of event listeners in your code.
+Answer : It is useful because it improves performance, it works for dynamically added elements, and reduces the number of event listeners in your code.
 
 
 5. What is the difference between preventDefault() and stopPropagation() methods?
