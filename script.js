@@ -148,4 +148,60 @@ rejectedTabButton.addEventListener("click", function () {
     rejectedTabButton.classList.remove("bg-gray-300", "text-black");
 });
 
+//  no jobs available 
+function checkNoJobs() {
+    const allCards = document.querySelectorAll("#allCards .card");
+    const filteredSection = document.getElementById("filtered-section");
+
+
+    let anyVisible = false;
+    allCards.forEach(card => {
+        if (card.style.display !== "none") {
+            anyVisible = true;
+        }
+    });
+
+    if (!anyVisible) {
+        filteredSection.innerHTML = `
+            <div class="flex flex-col items-center justify-center p-10 bg-white rounded-[20px]">
+                <i class="fa-solid fa-file-lines text-4xl text-gray-400 mb-4"></i>
+                <p class="text-gray-600 text-lg font-semibold">No jobs available</p>
+                <p class="text-gray-400 text-sm">Check back soon for new job opportunities</p>
+            </div>
+        `;
+        filteredSection.classList.remove("hidden");
+    } else {
+        filteredSection.classList.add("hidden");
+        filteredSection.innerHTML = "";
+    }
+}
+
+
+cards.forEach(card => {
+    const deleteButton = card.querySelector(".btn-delete");
+    deleteButton.addEventListener("click", function () {
+        card.style.display = "none";
+        checkNoJobs();
+    });
+});
+
+
+allButton.addEventListener("click", function () {
+    cards.forEach(card => card.style.display = "flex");
+    checkNoJobs();
+});
+interviewTabButton.addEventListener("click", function () {
+    cards.forEach(card => {
+        const status = card.querySelector(".status");
+        card.style.display = (status.innerText === "Interview") ? "flex" : "none";
+    });
+    checkNoJobs();
+});
+rejectedTabButton.addEventListener("click", function () {
+    cards.forEach(card => {
+        const status = card.querySelector(".status");
+        card.style.display = (status.innerText === "Rejected") ? "flex" : "none";
+    });
+    checkNoJobs();
+});
 }
