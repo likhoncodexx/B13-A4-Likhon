@@ -113,4 +113,39 @@ rejectedTabButton.addEventListener("click", function () {
         }
     }
 
-}); }
+});
+
+// background change
+function resetFilterButtons() {
+    allButton.classList.remove("bg-black", "text-white");
+    allButton.classList.add("bg-gray-300", "text-black");
+
+    interviewTabButton.classList.remove("bg-black", "text-white");
+    interviewTabButton.classList.add("bg-gray-300", "text-black");
+
+    rejectedTabButton.classList.remove("bg-black", "text-white");
+    rejectedTabButton.classList.add("bg-gray-300", "text-black");
+}
+
+// all button
+allButton.addEventListener("click", function () {
+    resetFilterButtons();
+    allButton.classList.add("bg-black", "text-white");
+    allButton.classList.remove("bg-gray-300", "text-black");
+});
+
+// interview button
+interviewTabButton.addEventListener("click", function () {
+    resetFilterButtons();
+    interviewTabButton.classList.add("bg-black", "text-white");
+    interviewTabButton.classList.remove("bg-gray-300", "text-black");
+});
+
+// rejected button
+rejectedTabButton.addEventListener("click", function () {
+    resetFilterButtons();
+    rejectedTabButton.classList.add("bg-black", "text-white");
+    rejectedTabButton.classList.remove("bg-gray-300", "text-black");
+});
+
+}
