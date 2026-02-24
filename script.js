@@ -33,7 +33,7 @@ let rejectedButton = card.querySelector(".rejected-btn");
 let deleteButton = card.querySelector(".btn-delete");
 let status =   card.querySelector(".status");
 
-// add evnlistnr
+// addEventListener
 // interview 
 interviewButton.addEventListener("click", function(){
 if(status.innerText === "Rejected"){
@@ -70,8 +70,47 @@ deleteButton.addEventListener("click",function (){
 card.style.display ="none";
 totalElement.innerText = parseInt(totalElement.innerText)-1;
 
-})
-// now filter button 
-//  
 
-}
+interviewElement.innerText = interviewCount;
+rejectedElement.innerText = rejectedCount;
+
+});
+// now filter button 
+// all 
+
+ allButton.addEventListener("click",function (){
+    for(let i =0; i < cards.length;i++){
+        cards[i].style.display = "flex";
+    }
+ });
+//  interviewTabButton
+interviewTabButton.addEventListener("click",function (){
+    for(let i = 0; i < cards.length; i++){
+
+       let status = cards[i].querySelector(".status");
+
+        if(status.innerText === "Interview"){
+            cards[i].style.display = "flex"
+        }
+        else{
+            cards[i].style.display = "none";
+        }
+    }
+});
+
+// rejectedTabButton
+
+rejectedTabButton.addEventListener("click", function () {
+
+    for (let i = 0; i < cards.length; i++) {
+
+        let status = cards[i].querySelector(".status");
+
+        if (status.innerText === "Rejected") {
+            cards[i].style.display = "flex";
+        } else {
+            cards[i].style.display = "none";
+        }
+    }
+
+}); }
